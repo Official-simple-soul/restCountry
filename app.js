@@ -49,7 +49,7 @@ fetch('https://restcountries.com/v2/all?')
             // console.log(data);
             let countries = data.map(country => {
                 return `<div class="col-md-4 mb-5">
-                <div class="card border-0 shadow">
+                <div class="card border-0 shadow bg-transparent">
                     <img src="${country.flag}" alt="" class="image">
                     <div class="card-body">
                         <h5 class="card-title">${country.name}</h5>
