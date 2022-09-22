@@ -12,8 +12,25 @@ function checkFeed() {
     document.getElementById('capital').innerHTML = 'Capital: ' + " " + items.capital;
     document.getElementById('sub').innerHTML = 'Sub-region: ' + " " + items.subregion;
     document.getElementById('currency').innerHTML = 'Currency: ' + " " + items.currencies[0].code;
-    document.getElementById('language').innerHTML = 'Language: ' + " " + items.languages[0].name
+    if(items.languages.length > 1) {
+        document.getElementById('language').innerHTML = 'Language: ' + " " + items.languages[0].name + ', ' + items.languages[1].name
+    }
+    else if(items.languages.length > 2) {
+        document.getElementById('language').innerHTML = 'Language: ' + " " + items.languages[0].name + ', ' + items.languages[1].name + ', ' + items.languages[2].name;
+    }
+    else {
+        document.getElementById('language').innerHTML = 'Language: ' + " " + items.languages[0].name
+    }
+    
     document.getElementById('domain').innerHTML = 'Top Level Domain: ' + " " + items.topLevelDomain;
+    const borderCountry = items.borders
+    console.log(borderCountry.length)
+    for(let i = 0; i < borderCountry.length; i++) {
+        let input = ''
+        input += `<button class="btn btn-dark shadow borders-in btn-secondary me-2 px-3 py-0">${borderCountry[i]}</button>`
+        document.querySelector('.borders').innerHTML += input
+        console.log(input)
+    }
 }
 checkFeed();
 

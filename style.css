@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Arima&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arima', cursive;
+    font-family: 'Nunito Sans', sans-serif;
 }
 .image {
     width: 100%;
@@ -16,9 +16,15 @@
     color: black !important;
 }
 
+.borders-in {
+    background-color: #343a40;
+    /* font-size: 14px; */
+}
+
 @media (max-width: 450px) {
     .new {
         margin-top: 30px !important;
+        margin-bottom: 30px !important;
     }
 }
 

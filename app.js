@@ -64,7 +64,7 @@ getData()
                         <p class="card-text"><b>Capital:</b> ${country.capital}</p>
                         <p class="card-text"><b>Population:</b> ${country.population}</p>
                         <p class="card-text"><b>Region:</b> ${country.region}</p>
-                        <a href="#" class="btn btn-primary view-more" onclick="clickMe()">Read More</a>
+                        <a href="#" class="btn btn-primary view-more" onclick="clickMe(${alpha})">Read More</a>
                     </div>
                 </div>
             </div>`;
@@ -97,7 +97,7 @@ for (let i = 0; i < regions.length; i++) {
                             <p class="card-text"><b>Capital:</b> ${country.capital}</p>
                             <p class="card-text"><b>Population:</b> ${country.population}</p>
                             <p class="card-text"><b>Region:</b> ${country.region}</p>
-                            <a href="#" class="btn btn-primary view-more" onclick="clickMe(${country.name})">Read More</a>
+                            <a href="#" class="btn btn-primary view-more" onclick="clickMe(${alpha})">Read More</a>
                         </div>
                     </div>
                 </div>`;
