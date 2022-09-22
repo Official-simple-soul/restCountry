@@ -28,14 +28,14 @@ function getData() {
         console.log(data);
         let countries = data.map(country => {
             let alpha = country.callingCodes
-            return `<div class="col-md-4 mb-5">
+            return `<div class="col-md-4 mb-5 onmouse" onclick="clickMe(${alpha})">
             <div class="card border-0 shadow bg-transparent">
                 <img src="${country.flag}" alt="" class="image">
                 <div class="card-body">
-                    <h5 class="card-title">${country.name}</h5>
+                    <h5 class="card-title fw-bold">${country.name}</h5>
                     <p class="card-text"><b>Capital:</b> ${country.capital}</p>
                     <p class="card-text"><b>Region:</b> ${country.region}</p>
-                    <button class="btn btn-primary view-more" onclick="clickMe(${alpha})">Read More</button>
+                    <p class="card-text"><b>Population:</b> ${country.population}</p>
                 </div>
             </div>
         </div>`;
@@ -56,15 +56,16 @@ getData()
         .then(data => {
             // console.log(data);
             let countries = data.map(country => {
-                return `<div class="col-md-4 mb-5">
+                let alpha = country.callingCodes
+                return `<div class="col-md-4 mb-5 onmouse" onclick="clickMe(${alpha})">
                 <div class="card border-0 shadow bg-transparent">
                     <img src="${country.flag}" alt="" class="image">
                     <div class="card-body">
-                        <h5 class="card-title">${country.name}</h5>
+                        <h5 class="card-title fw-bold">${country.name}</h5>
                         <p class="card-text"><b>Capital:</b> ${country.capital}</p>
                         <p class="card-text"><b>Population:</b> ${country.population}</p>
                         <p class="card-text"><b>Region:</b> ${country.region}</p>
-                        <a href="#" class="btn btn-primary view-more" onclick="clickMe(${alpha})">Read More</a>
+                        <p class="card-text"><b>Population:</b> ${country.population}</p>
                     </div>
                 </div>
             </div>`;
@@ -87,17 +88,18 @@ for (let i = 0; i < regions.length; i++) {
         fetch(`https://restcountries.com/v2/region/${region}`)
             .then(response => response.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 let countries = data.map(country => {
-                    return `<div class="col-md-4 mb-5">
+                    let alpha = country.callingCodes
+                    return `<div class="col-md-4 mb-5 onmouse" onclick="clickMe(${alpha})">
                     <div class="card border-0 shadow bg-dark text-light">
                         <img src="${country.flag}" alt="" class="image">
                         <div class="card-body">
-                            <h5 class="card-title">${country.name}</h5>
+                            <h5 class="card-title fw-bold">${country.name}</h5>
                             <p class="card-text"><b>Capital:</b> ${country.capital}</p>
                             <p class="card-text"><b>Population:</b> ${country.population}</p>
                             <p class="card-text"><b>Region:</b> ${country.region}</p>
-                            <a href="#" class="btn btn-primary view-more" onclick="clickMe(${alpha})">Read More</a>
+                            <p class="card-text"><b>Population:</b> ${country.population}</p>
                         </div>
                     </div>
                 </div>`;

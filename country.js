@@ -1,7 +1,6 @@
 function checkFeed() {
     let newObject = localStorage.getItem('viewCountry');
     let post = JSON.parse(newObject);
-    console.log(post)
     let items = post[0];
 
     document.getElementById('name').innerHTML = items.name;
@@ -24,14 +23,11 @@ function checkFeed() {
     
     document.getElementById('domain').innerHTML = 'Top Level Domain: ' + " " + items.topLevelDomain;
     const borderCountry = items.borders
-    console.log(borderCountry.length)
     for(let i = 0; i < borderCountry.length; i++) {
         let input = ''
         input += `<button class="btn btn-dark shadow borders-in btn-secondary me-2 px-3 py-0">${borderCountry[i]}</button>`
         document.querySelector('.borders').innerHTML += input
-        console.log(input)
     }
 }
 checkFeed();
-
 

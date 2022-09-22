@@ -21,6 +21,10 @@
     /* font-size: 14px; */
 }
 
+.onmouse {
+    cursor: pointer;
+}
+
 @media (max-width: 450px) {
     .new {
         margin-top: 30px !important;
