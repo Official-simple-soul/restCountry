@@ -8,9 +8,46 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body class="bg-dark">
+<body class="bg-dark text-light body">
+    <section id="navbarsection">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+              <a class="navbar-brand" href="#"><b>COUNTRY REST</b></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link home" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Country By Region
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item region" href="#">Africa</a></li>
+                      <li><a class="dropdown-item region" href="#">Europe</a></li>
+                      <li><a class="dropdown-item region" href="#">Asia</a></li>
+                      <li><a class="dropdown-item region" href="#">Americas</a></li>
+                      <li><a class="dropdown-item region" href="#">Oceania</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex search">
+                  <input class="form-control me-2 search-input" type="search" placeholder="Search Country" aria-label="Search">
+                  <button class="btn btn-outline-success search" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+            <div class="p-2 d-flex justify-content-end align-items-center">
+              <button class="rounded-3 p-1 changebtn">Light Mode</button>
+            </div>
+          </nav>
+    </section>
     <section id="country">
         <div class="container py-3">
+<<<<<<< HEAD
             <div class="search text-center">
                 <form action="" method="post" class="search-form">
                     <label for="country" class="my-2 text-light">Search Country</label><br>
@@ -18,14 +55,18 @@
                     <input type="submit" class="search py-2 px-3 rounded-3" name="search" value="Search">
                 </form>
             </div>
+=======
+>>>>>>> f97173ae68ec584b03c08c39993c363252501fe9
             <div class="row py-3">
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="img/pexels-tobi-518557.jpg" alt="">
+                <div class="col-md-4 mb-5">
+                    <div class="card border-0 shadow">
+                        <img src="" alt="" class="image">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"></p>
+                            <p class="card-text"></p>
+                            <p class="card-text"></p>
+                            <a href="#" class="btn btn-primary view-more"></a>
                         </div>
                     </div>
                 </div>
