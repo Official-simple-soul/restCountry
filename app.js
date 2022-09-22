@@ -63,7 +63,6 @@ getData()
                     <div class="card-body">
                         <h5 class="card-title fw-bold">${country.name}</h5>
                         <p class="card-text"><b>Capital:</b> ${country.capital}</p>
-                        <p class="card-text"><b>Population:</b> ${country.population}</p>
                         <p class="card-text"><b>Region:</b> ${country.region}</p>
                         <p class="card-text"><b>Population:</b> ${country.population}</p>
                     </div>
@@ -97,7 +96,6 @@ for (let i = 0; i < regions.length; i++) {
                         <div class="card-body">
                             <h5 class="card-title fw-bold">${country.name}</h5>
                             <p class="card-text"><b>Capital:</b> ${country.capital}</p>
-                            <p class="card-text"><b>Population:</b> ${country.population}</p>
                             <p class="card-text"><b>Region:</b> ${country.region}</p>
                             <p class="card-text"><b>Population:</b> ${country.population}</p>
                         </div>
