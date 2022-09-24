@@ -23,11 +23,37 @@ function checkFeed() {
     
     document.getElementById('domain').innerHTML = 'Top Level Domain: ' + " " + items.topLevelDomain;
     const borderCountry = items.borders
+
+    
     for(let i = 0; i < borderCountry.length; i++) {
-        let input = ''
-        input += `<button class="btn btn-dark shadow borders-in btn-secondary me-2 px-3 py-0">${borderCountry[i]}</button>`
-        document.querySelector('.borders').innerHTML += input
+        fetch('https://restcountries.com/v2/all?')
+        .then(response => response.json())
+         .then(data => {
+            for (let j = 0; j < data.length; j++) {
+                newAlpha = data[j].alpha3Code
+                newCodes = data[j].callingCodes[0];
+                
+                if(newAlpha === borderCountry[i]) {
+                    borderFull = data[j].name
+                    let input = ''
+                    input += `<button class="btn btn-dark shadow borders-in btn-secondary me-2 px-3 py-0" onclick="clickNew(${newCodes})">${borderFull}</button>`
+                    document.querySelector('.borders').innerHTML += input
+                }
+                
+            }
+            
+    })
+        
     }
 }
 checkFeed();
+
+function clickNew(newCodes) {
+    fetch(`https://restcountries.com/v2/callingcode/${newCodes}`)
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem("viewCountry", JSON.stringify(data));
+        window.location.href = "view.html";
+      });
+}
 

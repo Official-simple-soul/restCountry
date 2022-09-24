@@ -18,6 +18,24 @@ const switchMode = () => {
 }
 switchMode()
 
+// group data
+function groupData(data) {
+    let countries = data.map(country => {
+        let alpha = country.callingCodes
+        return `<div class="col-md-4 mb-5 onmouse" onclick="clickMe(${alpha})">
+        <div class="card border-0 shadow bg-transparent">
+            <img src="${country.flag}" alt="" class="image">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">${country.name}</h5>
+                <p class="card-text"><b>Capital:</b> ${country.capital}</p>
+                <p class="card-text"><b>Region:</b> ${country.region}</p>
+                <p class="card-text"><b>Population:</b> ${country.population}</p>
+            </div>
+        </div>
+    </div>`;
+    }).join('');
+    document.querySelector('.row').innerHTML = countries;
+}
 
 // get data
 function getData() {
@@ -25,56 +43,25 @@ function getData() {
     fetch('https://restcountries.com/v2/all?')
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-        let countries = data.map(country => {
-            let alpha = country.callingCodes
-            return `<div class="col-md-4 mb-5 onmouse" onclick="clickMe(${alpha})">
-            <div class="card border-0 shadow bg-transparent">
-                <img src="${country.flag}" alt="" class="image">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">${country.name}</h5>
-                    <p class="card-text"><b>Capital:</b> ${country.capital}</p>
-                    <p class="card-text"><b>Region:</b> ${country.region}</p>
-                    <p class="card-text"><b>Population:</b> ${country.population}</p>
-                </div>
-            </div>
-        </div>`;
-        }).join('');
-        document.querySelector('.row').innerHTML = countries;
+        groupData(data)
+        
     }
     ).catch(error => console.log(error));
 }
 getData()
 
-
 // search for country
-  let search = document.querySelector('.search').addEventListener('submit', (e) => {
+let search = document.querySelector('.search').addEventListener('submit', (e) => {
     e.preventDefault();
     let searchValue = document.querySelector('.search-input').value;
     fetch(`https://restcountries.com/v2/name/${searchValue}`)
         .then(response => response.json())
         .then(data => {
-            // console.log(data);
-            let countries = data.map(country => {
-                let alpha = country.callingCodes
-                return `<div class="col-md-4 mb-5 onmouse" onclick="clickMe(${alpha})">
-                <div class="card border-0 shadow bg-transparent">
-                    <img src="${country.flag}" alt="" class="image">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">${country.name}</h5>
-                        <p class="card-text"><b>Capital:</b> ${country.capital}</p>
-                        <p class="card-text"><b>Population:</b> ${country.population}</p>
-                        <p class="card-text"><b>Region:</b> ${country.region}</p>
-                        <p class="card-text"><b>Population:</b> ${country.population}</p>
-                    </div>
-                </div>
-            </div>`;
-            }).join('');
-            document.querySelector('.row').innerHTML = countries;
+            groupData(data)
         }
         ).catch(error => console.log(error));
   }
-    )
+)
 
 // reload page
 let home = document.querySelector('.home').addEventListener('click', () => location.reload());
@@ -88,23 +75,7 @@ for (let i = 0; i < regions.length; i++) {
         fetch(`https://restcountries.com/v2/region/${region}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                let countries = data.map(country => {
-                    let alpha = country.callingCodes
-                    return `<div class="col-md-4 mb-5 onmouse" onclick="clickMe(${alpha})">
-                    <div class="card border-0 shadow bg-dark text-light">
-                        <img src="${country.flag}" alt="" class="image">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">${country.name}</h5>
-                            <p class="card-text"><b>Capital:</b> ${country.capital}</p>
-                            <p class="card-text"><b>Population:</b> ${country.population}</p>
-                            <p class="card-text"><b>Region:</b> ${country.region}</p>
-                            <p class="card-text"><b>Population:</b> ${country.population}</p>
-                        </div>
-                    </div>
-                </div>`;
-                }).join('');
-                document.querySelector('.row').innerHTML = countries;
+                groupData(data)
             }
             ).catch(error => console.log(error));
     }
@@ -112,13 +83,43 @@ for (let i = 0; i < regions.length; i++) {
     )
 }
 
-// click to see more about country details on a new html page
+// view country details
 function clickMe(alpha) {
     fetch(`https://restcountries.com/v2/callingcode/${alpha}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         localStorage.setItem("viewCountry", JSON.stringify(data));
         window.location.href = "view.html";
       });
   }
+
+
+// const arr = []
+//   fetch('https://restcountries.com/v3.1/all')
+//     .then(response => response.json())
+//     .then(data => {
+        
+//         for (let i = 0; i < data.length; i++) {
+//             let name = data[i].name.common
+//             arr.push(name)
+//             let sorted = arr.sort()
+            
+//             if (sorted[i] == name) {
+//                 console.log(data[i])
+//             }
+            
+//             // for (let array of arr) {
+//             //     if (array == name) {
+//             //        const badass = data[i]
+//             //         console.log(array[i])
+//             //     }
+//             // }
+            
+//         }
+
+        
+//     })
+
+    
+
+
