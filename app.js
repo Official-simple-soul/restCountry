@@ -92,34 +92,3 @@ function clickMe(alpha) {
         window.location.href = "view.html";
       });
   }
-
-
-// const arr = []
-//   fetch('https://restcountries.com/v3.1/all')
-//     .then(response => response.json())
-//     .then(data => {
-        
-//         for (let i = 0; i < data.length; i++) {
-//             let name = data[i].name.common
-//             arr.push(name)
-//             let sorted = arr.sort()
-            
-//             if (sorted[i] == name) {
-//                 console.log(data[i])
-//             }
-            
-//             // for (let array of arr) {
-//             //     if (array == name) {
-//             //        const badass = data[i]
-//             //         console.log(array[i])
-//             //     }
-//             // }
-            
-//         }
-
-        
-//     })
-
-    
-
-
