@@ -1,3 +1,23 @@
+let changeBtn = document.querySelector('.changebtn');
+let changeBody = document.querySelector('.body')
+
+// switch mode
+const switchMode = () => {
+    changeBtn.addEventListener('click', function () {
+        changeBody.classList.toggle('change');
+
+        if (changeBody.classList.contains('change')) {
+            changeBtn.innerHTML = 'Dark Mode';
+            changeBtn.style.border = '1px solid #fff';
+        }
+        else {
+            changeBtn.innerHTML = 'Light Mode';
+        }
+    }
+);
+}
+switchMode()
+
 function checkFeed() {
     let newObject = localStorage.getItem('viewCountry');
     let post = JSON.parse(newObject);
